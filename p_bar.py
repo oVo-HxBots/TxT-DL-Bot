@@ -34,3 +34,8 @@ async def progress_bar(current,total,reply,start):
                
             except FloodWait as e:
                 time.sleep(e.x)
+
+channel = "@HxBots"
+owner = "@Kirodewal"
+pdf = "@TxT_DLBot.pdf"
+video = "@TxT_DLBot.mp4"
