@@ -10,11 +10,7 @@ from pyrogram.types import Message
 import pyrogram
 from pyrogram import Client, filters
 import tgcrypto
-from p_bar import progress_bar
-channel = "@HxBots"
-owner = "@Kirodewal"
-pdf = "@TxT_DLBot.pdf"
-video = "@TxT_DLBot.mp4"
+from p_bar import progress_bar channel owner pdf video
 # from details import api_id, api_hash, bot_token
 from subprocess import getstatusoutput
 import helper
