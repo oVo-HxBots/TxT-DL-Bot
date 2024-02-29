@@ -10,7 +10,7 @@ from pyrogram.types import Message
 import pyrogram
 from pyrogram import Client, filters
 import tgcrypto
-from p_bar import progress_bar channel owner pdf video
+from p_bar import progress_bar *
 # from details import api_id, api_hash, bot_token
 from subprocess import getstatusoutput
 import helper
