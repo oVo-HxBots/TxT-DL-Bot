@@ -11,6 +11,10 @@ import pyrogram
 from pyrogram import Client, filters
 import tgcrypto
 from p_bar import progress_bar
+channel = "@HxBots"
+owner = "@Kirodewal"
+pdf = "@TxT_DLBot.pdf"
+video = "@TxT_DLBot.mp4"
 # from details import api_id, api_hash, bot_token
 from subprocess import getstatusoutput
 import helper
@@ -38,7 +42,7 @@ bot = Client(
 
 @bot.on_message(filters.command(["help"]))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("Hello Im txt File Downloader\n\n**Steps To Use Bot:**\n **1:** Send /start & then send your .txt file.\n **2:** Now Send From Where You Want To    Download Initial is 0 .\n **3:** Now Send Your File Name or Use `de` For.  Use Default File Name.\n **4:** Now Send Resolution In Which Quality    You Want.\n **5:** Now Againg Send /start.\n **6:** Now Send Custom Thum URL or    Send `no` to Use Defalut Thumbnail.\n **7:** Now Wait Bot will Download & Upload Your Videos.\n\n**Bot made by @Kirodewal & Updated By @HxBots**")
+    editable = await m.reply_text("Hello Im TxT File Downloader\n\n**Steps To Use Bot:**\n **1:** Send /start & then send your .txt file.\n **2:** Now Send From Where You Want To    Download Initial is 0 .\n **3:** Now Send Your File Name or Use `de` For.  Use Default File Name.\n **4:** Now Send Resolution In Which Quality    You Want.\n **5:** Now Againg Send /start.\n **6:** Now Send Custom Thum URL or    Send `no` to Use Defalut Thumbnail.\n **7:** Now Wait Bot will Download & Upload Your Videos.\n\n**Bot made by {owner} & Updated By {channel}**")
 
 @bot.on_message(filters.command(["cancel"]))
 async def cancel(_, m):
@@ -47,9 +51,9 @@ async def cancel(_, m):
     cancel = True
     await editable.edit("cancled")
     return
-@bot.on_message(filters.command("restart"))
+@bot.on_message(filters.command("restart") & filters.user(OWNER))
 async def restart_handler(_, m):
-    await m.reply_text("Restarted!", True)
+    await m.reply_text("Bot Restarted! ♻️", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 @bot.on_message(filters.command(["start"]))
@@ -103,7 +107,7 @@ async def account_login(bot: Client, m: Message):
     else:
         CR = raw_text3
 
-    editable4= await m.reply_text("Now send the **Thumb url**\nEg : ```https://telegra.ph/Abhi-04-08```\n\nor Send **no**")
+    editable4= await m.reply_text("Now send the **Thumb url**\nEg : ```https://graph.org/file/9f6c0231a552ff16c3407.jpg```\n\nor Send **no**")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
 
@@ -312,8 +316,8 @@ async def account_login(bot: Client, m: Message):
             try:
                 Show = f"**Downloading:-**\n\n**Name :-** `{name}\nQuality - {raw_text2}`\n\n**Url :-** `{url}`\n\n"
                 prog = await m.reply_text(Show)
-                cc = f'**File Name »** {name1} @AS_Multiverse.mp4\n**Batch »** {raw_text0}\n\n**{CR}**'
-                cc1 =f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} @AS_Multiverse.pdf\n**Batch »** {raw_text0}\n\n**{CR}**'
+                cc = f'**File Name »** {name1} {video}\n**Batch »** {raw_text0}\n\n**{CR}**'
+                cc1 =f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n**Batch »** {raw_text0}\n\n**{CR}**'
                 if cmd == "pdf" or "drive" in url:
                     try:
                         ka=await helper.download(url,name)
@@ -341,7 +345,7 @@ async def account_login(bot: Client, m: Message):
                         reply = await m.reply_text(f"Uploading - ```{name}```")
                         time.sleep(1)
                         start_time = time.time()
-                        await m.reply_document(ka, caption=f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} @AS_Multiverse.pdf\n**Batch »** {raw_text0}\n\n**{CR}**')
+                        await m.reply_document(ka, caption=f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n**Batch »** {raw_text0}\n\n**{CR}**')
                         count+=1
                         # time.sleep(1)
                         await reply.delete (True)
