@@ -1,4 +1,3 @@
-## TxT-DL-Bot
 <img src="https://graph.org/file/9f6c0231a552ff16c3407.jpg" alt="logo" target="logo">
 
 <h1 align="center">
@@ -25,6 +24,9 @@
 <a href="https://heroku.com/deploy?template=https://github.com/oVo-HxBots/TxT-DL-Bot">
      <img height="30px" src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku">
   </a>
+
+  ### Deploy To Koyeb 
+   _**Soon.**_
   
 ### 😍 COMMANDS
 ```
