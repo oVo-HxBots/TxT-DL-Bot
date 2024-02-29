@@ -11,6 +11,10 @@ import pyrogram
 from pyrogram import Client, filters
 import tgcrypto
 from p_bar import progress_bar
+channel = "@HxBots"
+owner = "@Kirodewal"
+pdf = "@TxT_DLBot.pdf"
+video = "@TxT_DLBot.mp4"
 # from details import api_id, api_hash, bot_token
 from subprocess import getstatusoutput
 import helper
@@ -19,10 +23,6 @@ import time
 import aiohttp
 import asyncio
 import aiofiles
-channel = "@HxBots"
-owner = "@Kirodewal"
-pdf = "@TxT_DLBot.pdf"
-video = "@TxT_DLBot.mp4"
 from pyrogram.types import User, Message
 # import progressor 
 # from progressor import progress_for_pyrogram
@@ -42,7 +42,7 @@ bot = Client(
 
 @bot.on_message(filters.command(["help"]))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("Hello Im TxT File Downloader\n\n**Steps To Use Bot:**\n **1:** Send /start & then send your .txt file.\n **2:** Now Send From Where You Want To    Download Initial is 0 .\n **3:** Now Send Your File Name or Use `de` For.  Use Default File Name.\n **4:** Now Send Resolution In Which Quality    You Want.\n **5:** Now Againg Send /start.\n **6:** Now Send Custom Thum URL or    Send `no` to Use Defalut Thumbnail.\n **7:** Now Wait Bot will Download & Upload Your Videos.\n\n**Bot made by "{owner}" & Updated By "{channel}" **")
+    editable = await m.reply_text("Hello Im TxT File Downloader\n\n**Steps To Use Bot:**\n **1:** Send /start & then send your .txt file.\n **2:** Now Send From Where You Want To    Download Initial is 0 .\n **3:** Now Send Your File Name or Use `de` For.  Use Default File Name.\n **4:** Now Send Resolution In Which Quality    You Want.\n **5:** Now Againg Send /start.\n **6:** Now Send Custom Thum URL or    Send `no` to Use Defalut Thumbnail.\n **7:** Now Wait Bot will Download & Upload Your Videos.\n\n**Bot made by "{owner}" & Updated By "{channel}" **"),
 
 @bot.on_message(filters.command(["cancel"]))
 async def cancel(_, m):
