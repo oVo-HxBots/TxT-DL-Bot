@@ -2,7 +2,7 @@
 <img src="https://graph.org/file/9f6c0231a552ff16c3407.jpg" alt="logo" target="logo">
 
 <h1 align="center">
- <b><a href="https://t.me/hx_renamebot" target="/blank">Rename-Pro</a></>
+ <b><a href="https://t.me/Txt_DLBot" target="/blank">TxT-DLBot</a></>
 </h1>
 
 ### 🔥 ALL VARIABLES
