@@ -10,7 +10,7 @@ from pyrogram.types import Message
 import pyrogram
 from pyrogram import Client, filters
 import tgcrypto
-from p_bar import progress_bar, channel, owner, pdf, video
+from p_bar import progress_bar
 # from details import api_id, api_hash, bot_token
 from subprocess import getstatusoutput
 import helper
@@ -528,3 +528,8 @@ async def account_login(bot: Client, m: Message):
     await m.reply_text("Done")     
     
 bot.run()
+
+channel = f'@HxBots'
+owner = f'@Kirodewal'
+pdf = f'@TxT_DLBot.pdf'
+video = f'@TxT_DLBot.mp4'
