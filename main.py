@@ -31,9 +31,9 @@ from config import Config
 
 bot = Client(
     "bot",
-    bot_token=environ.get('BOT_TOKEN'), 
-    api_id=int(environ.get('API_ID')), 
-    api_hash=environ.get('API_HASH'),
+    bot_token=Config.BOT_TOKEN, 
+    api_id=Config.API_ID, 
+    api_hash=Config.API_HASH,
     workers= 6)
 
 channel = f'@HxBots'
@@ -43,7 +43,7 @@ video = f'@TxT_DLBot.mp4'
 
 @bot.on_message(filters.command(["help"]))
 async def help_handler(bot: Client, m: Message):
-    await m.reply_text(f"Hello Im TxT File Downloader\n\n**Steps To Use Bot:**\n **1:** Send /start & then send your .txt file.\n **2:** Now Send From Where You Want To    Download Initial is 0 .\n **3:** Now Send Your File Name or Use `de` For.  Use Default File Name.\n **4:** Now Send Resolution In Which Quality    You Want.\n **5:** Now Againg Send /start.\n **6:** Now Send Custom Thum URL or    Send `no` to Use Defalut Thumbnail.\n **7:** Now Wait Bot will Download & Upload Your Videos.\n\n**Bot made by `{owner}` & Updated By `{channel}`**")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+    await m.reply_text(f"Hello Im TxT File Downloader\n\n**Steps To Use Bot:**\n **1:** Send /start & then send your .txt file.\n **2:** Now Send From Where You Want To    Download Initial is 0 .\n **3:** Now Send Your File Name or Use `de` For.  Use Default File Name.\n **4:** Now Send Resolution In Which Quality    You Want.\n **5:** Now Againg Send /start.\n **6:** Now Send Custom Thum URL or    Send `no` to Use Defalut Thumbnail.\n **7:** Now Wait Bot will Download & Upload Your Videos.\n\n**```Bot made by {owner} & Updated By {channel} **```")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 @bot.on_message(filters.command(["cancel"]))
 async def cancel(_, m):
