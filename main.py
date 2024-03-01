@@ -36,6 +36,10 @@ bot = Client(
     api_hash=environ.get('API_HASH'),
     workers= 6)
 
+channel = f'@HxBots'
+owner = f'@Kirodewal'
+pdf = f'@TxT_DLBot.pdf'
+video = f'@TxT_DLBot.mp4'
 
 @bot.on_message(filters.command(["help"]))
 async def help_handler(bot: Client, m: Message):
@@ -529,7 +533,3 @@ async def account_login(bot: Client, m: Message):
     
 bot.run()
 
-channel = f'@HxBots'
-owner = f'@Kirodewal'
-pdf = f'@TxT_DLBot.pdf'
-video = f'@TxT_DLBot.mp4'
