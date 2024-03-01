@@ -9,7 +9,8 @@
 * `BOT_TOKEN`  - Get bot token from @BotFather
 * `API_ID` - From my.telegram.org 
 * `API_HASH` - From my.telegram.org
-* `ADMIN` - Owner Id.
+* `OWNER_ID` - Admin UserId.
+* `DB_URI` - Database URL `#May Be In Future `.
 
 ### 🥰 FEATURES
  - Download & Upload very fast .
