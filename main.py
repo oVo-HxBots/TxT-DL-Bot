@@ -31,7 +31,9 @@ import re
 import os
 from os import environ
 # import pycurl
-OWNER = environ.get('OWNER_ID')
+
+OWNER = int(environ.get('OWNER_ID'))
+
 bot = Client(
     "bot",
     bot_token=environ.get('BOT_TOKEN'), 
@@ -51,7 +53,9 @@ async def cancel(_, m):
     cancel = True
     await editable.edit("cancled")
     return
-@bot.on_message(filters.command("restart") & filters.user(OWNER))
+@bot.on_message(filters.command(["restart"])
+    & filters.user(OWNER)
+)
 async def restart_handler(_, m):
     await m.reply_text("Bot Restarted! ♻️", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
