@@ -106,15 +106,6 @@ async def account_login(bot: Client, m: Message):
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
 
-    await editable.edit("**Enter Your Name or send `de` for use default file Name**")
-
-    input3: Message = await bot.listen(editable.chat.id)
-    raw_text3 = input3.text
-    if raw_text3 == 'de':
-        CR = credit
-    else:
-        CR = raw_text3
-
     editable4= await m.reply_text("Now send the **Thumb url**\nEg : https://graph.org/file/9f6c0231a552ff16cf3407.jpg\n\nElse Send **No**")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
