@@ -91,22 +91,20 @@ async def account_login(bot: Client, m: Message):
     input1: Message = await bot.listen(editable.chat.id)
     raw_text = input1.text
 
-
     try:
         arg = int(raw_text)
     except:
         arg = 0
 
-
-    editable = await m.reply_text("**Enter Title For File. Send 'de' To Use Default File Name.**")
+    editable = await m.reply_text("**Enter Title**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text0 = input0.text
-
-    await m.reply_text("**Enter Resolution \nExamples: __144 = SD Quality\n             240 = SD Quality\n             360 = SD Quality\n             480 = SD Quality\n             720 = HD Quality\n             1080 = FHD Quality__**")
+    
+    await m.reply_text("**Enter Resolution \nExamples: __480 = SD Quality\n             720 = HD Quality\n             1080 = FHD Quality__**")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
 
-    editable4= await m.reply_text("Now send the **Thumb url**\nEg : https://graph.org/file/9f6c0231a552ff16cf3407.jpg\n\nElse Send **No**")
+    editable4= await m.reply_text("Now send the **Thumb url**\nEg : https://telegra.ph/file/d9e24878bd4abyhga05049a1.jpg\n\nElse Send **No**")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
 
@@ -263,31 +261,6 @@ async def account_login(bot: Client, m: Message):
                     ytf = out['854x480']                        
                 elif '640x360' in out:
                     ytf = out['640x360']     
-                elif 'unknown' in out:
-                    ytf = out["unknown"]              
-                else:
-                    ytf = "no"
-                    
-            elif raw_text2 =="1080":
-
-                cmd = f'yt-dlp -F "{url}"'
-                k = await helper.run(cmd)
-                out = helper.vid_info(str(k))
-                # print(out)           
-                if '1920x1080' in out:
-                    ytf = out['1920x1080'] 
-                elif '1920x704' in out:
-                    ytf = out['1920x704'] 
-                elif '1920x474' in out:
-                    ytf = out['1920x474'] 
-                elif '1920x712' in out:
-                    ytf = out['1920x712'] 
-                elif '1920x1056' in out:
-                    ytf = out['1920x1056']    
-                elif '1920x480' in out:
-                    ytf = out['1920x480']                        
-                elif '1920x360' in out:
-                    ytf = out['1920x360']     
                 elif 'unknown' in out:
                     ytf = out["unknown"]              
                 else:
