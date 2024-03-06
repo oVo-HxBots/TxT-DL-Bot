@@ -417,7 +417,7 @@ async def account_login(bot: Client, m: Message):
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
 
-    editable4= await m.reply_text("Now send the **Thumb url**\nEg : https://telegra.ph/file/d9e24878bd4aba05049a1.jpg\n\Else Send **No**")
+    editable4= await m.reply_text("Now send the **Thumb url**\nEg : https://telegra.ph/file/d9e24878bd4aba05049a1.jpg\n\nElse Send **No**")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
 
@@ -492,13 +492,13 @@ async def account_login(bot: Client, m: Message):
                 os.system(download_cmd)
                 
 
-                if os.path.isfile(f"{name}_{mkv}"):
-                    filename = f"{name}_{mkv}"
-                elif os.path.isfile(f"{name}_{video}"):
-                    filename = f"{name}_{video}"  
-                elif os.path.isfile(f"{name}_{pdf}"):
-                    filename = f"{name}_{pdf}"  
-#                 filename = f"{name}_{mkv}"
+                if os.path.isfile(f"{name}.mkv"):
+                    filename = f"{name}.mkv"
+                elif os.path.isfile(f"{name}.mp4"):
+                    filename = f"{name}.mp4"  
+                elif os.path.isfile(f"{name}.pdf"):
+                    filename = f"{name}.pdf"  
+#                 filename = f"{name}.mkv"
                 subprocess.run(f'ffmpeg -i "{filename}" -ss 00:01:00 -vframes 1 "{filename}.jpg"', shell=True)
                 await prog.delete (True)
                 reply = await m.reply_text(f"Uploading - ```{name}```")
