@@ -300,7 +300,7 @@ async def account_login(bot: Client, m: Message):
                 elif 'unknown' in out:
                     ytf = out["unknown"]              
                 else:
-                    ytf = "no
+                    ytf = "no"
                     
             elif "player.vimeo" in url:
                 if raw_text2 == '144':
