@@ -61,9 +61,15 @@ async def restart_handler(_, m):
 
 @bot.on_message(filters.command(["start"]))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("**Hi!, I'm PyroBot. I Can Download All Links In A Txt File & Send Them To You.\n\nUse /help To Get Some Help 😉\n\n Use /upload Command to Get Started!!!**")
+    editable = await m.reply_text("**Hi!, I'm PyroBot. I Can Download All Links In A Txt File & Send Them To You.\n\nUse /help To Get Some Help 😉\n\n Use /up_vid Command to Upload Videos in Streamable Formate & /up_dov to Upload In Document Formate!!!**")
 
 
+@bot.on_message(filters.command(["up_vid"]))
+async def account_login(bot: Client, m: Message):
+    editable = await m.reply_text("Send txt file Now**")
+    input: Message = await bot.listen(editable.chat.id)
+    x = await input.download()
+    await input.delete(True)
     
     path = f"./downloads/{m.chat.id}"
 
@@ -96,7 +102,7 @@ async def account_login(bot: Client, m: Message):
     input0: Message = await bot.listen(editable.chat.id)
     raw_text0 = input0.text
 
-    await m.reply_text("**Enter Resolution \nExamples: __480 = SD Quality\n             720 = HD Quality\n             1080 = FHD Quality\n              1920 = UHD Quality__**")
+    await m.reply_text("**Enter Resolution \nExamples: __144 = SD Quality\n             240 = SD Quality\n             360 = SD Quality\n             480 = SD Quality\n             720 = HD Quality\n             1080 = FHD Quality__**")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
 
@@ -109,7 +115,7 @@ async def account_login(bot: Client, m: Message):
     else:
         CR = raw_text3
 
-    editable4= await m.reply_text("Now send the **Thumb url**\nEg : ```https://graph.org/file/9f6c0231a552ff16c3407.jpg```\n\nor Send **no**")
+    editable4= await m.reply_text("Now send the **Thumb url**\nEg : https://graph.org/file/9f6c0231a552ff16cf3407.jpg\n\nElse Send **No**")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
 
@@ -270,6 +276,32 @@ async def account_login(bot: Client, m: Message):
                     ytf = out["unknown"]              
                 else:
                     ytf = "no"
+                    
+            elif raw_text2 =="1080":
+
+                cmd = f'yt-dlp -F "{url}"'
+                k = await helper.run(cmd)
+                out = helper.vid_info(str(k))
+                # print(out)           
+                if '1920x1080' in out:
+                    ytf = out['1920x1080'] 
+                elif '1920x704' in out:
+                    ytf = out['1920x704'] 
+                elif '1920x474' in out:
+                    ytf = out['1920x474'] 
+                elif '1920x712' in out:
+                    ytf = out['1920x712'] 
+                elif '1920x1056' in out:
+                    ytf = out['1920x1056']    
+                elif '1920x480' in out:
+                    ytf = out['1920x480']                        
+                elif '1920x360' in out:
+                    ytf = out['1920x360']     
+                elif 'unknown' in out:
+                    ytf = out["unknown"]              
+                else:
+                    ytf = "no
+                    
             elif "player.vimeo" in url:
                 if raw_text2 == '144':
                     ytf= 'http-240p'
@@ -281,6 +313,8 @@ async def account_login(bot: Client, m: Message):
                     ytf= 'http-540p'
                 elif raw_text2 == '720':
                     ytf= 'http-720p'
+                elif raw_text2 == '1080':
+                    ytf= 'http-1080p'
                 else:
                     ytf = 'http-360p'
             else:
@@ -375,7 +409,7 @@ async def account_login(bot: Client, m: Message):
     await m.reply_text("Done")    
 
 
-@bot.on_message(filters.command(["upload"]))
+@bot.on_message(filters.command(["up_doc"]))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text("Send txt file**")
     input: Message = await bot.listen(editable.chat.id)
@@ -417,7 +451,7 @@ async def account_login(bot: Client, m: Message):
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
 
-    editable4= await m.reply_text("Now send the **Thumb url**\nEg : https://telegra.ph/file/d9e24878bd4aba05049a1.jpg\n\nElse Send **No**")
+    editable4= await m.reply_text("Now send the **Thumb url**\nEg : https://telegra.ph/file/d9e24878bd4abyhga05049a1.jpg\n\nElse Send **No**")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
 
