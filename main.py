@@ -97,12 +97,15 @@ async def account_login(bot: Client, m: Message):
         arg = 0
 
 
-    editable = await m.reply_text("**Enter Title For File. Send 'de' To Use Default File Name.**")
+    editable = await m.reply_text("**Enter Title For File. Send 'De' To Use Default File Name.**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text0 = input0.text
-    if raw_text0 == 'de':
+    if raw_text0 == 'De':
+        CR = credit
+    else:
         CR = raw_text0
-        
+
+    
     await m.reply_text("**Enter Resolution \nExamples: __480 = SD Quality\n             720 = HD Quality\n             1080 = FHD Quality__**")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
