@@ -320,10 +320,10 @@ async def account_login(bot: Client, m: Message):
 
 
             try:
-                remain = f'{len(links)} - {str(count).zfill(3)}'
-                Show = f"**Downloading:-**\n\n**Name :-** `{name}\nQuality - {raw_text2}`\n\n**Url :-** `{url}`\n\nRemaining » {remain} Files"
+                remain = {len(links)} - {str(count).zfill(3)}
+                Show = f"**Downloading:-**\n\n**Name »** `{name}\n**Quality »** {raw_text2}`\n\n**Url »** `{url}`\n\nRemaining » {remain} Files"
                 prog = await m.reply_text(Show)
-                cc = f'**File Name »** {name1} {video}\n**Batch »** {raw_text0}\n\n**{CR}**'
+                cc = f'**File Name »** {name1} {video}\n**Quality »** {raw_text2}'
                 cc1 =f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n'
                 if cmd == "pdf" or "drive" in url:
                     try:
