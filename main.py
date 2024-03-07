@@ -320,7 +320,7 @@ async def account_login(bot: Client, m: Message):
 
 
             try:
-                remain = {str(count).zfill(3)} - {str(count-1)}
+                remain = f'{str(count).zfill(3)} - 1'
                 Show = f"**Downloading:-**\n\n**Name »** `{name}`\n**Quality »** `{raw_text2}`\n\n**Url »** `{url}`\n\nRemaining » {remain} Files"
                 prog = await m.reply_text(Show)
                 cc = f'**File Name »** {name1} {video}\n**Quality »** {raw_text2}'
@@ -484,8 +484,8 @@ async def account_login(bot: Client, m: Message):
                 url1 = url
 
             
-            remain = f'{str(count).zfill(3)} - {int(count-1)}'
-            name = f'{str(count).zfill(3)} {name1}'    
+            remain = f'{str(count).zfill(3)} - 1'
+            name = f'{name1}'    
             Show = f"**Downloading:-**\n\n**Name :-** `{name} {video}`\n\n**Url :-** `{url1}`\n\nRemaining » {remain} Files"
             prog = await m.reply_text(Show)
             cc = f'**Title »** {name1}.mkv {video}\n**Batch »** {raw_text0}\n**Index »** {str(count).zfill(3)}'
@@ -508,7 +508,6 @@ async def account_login(bot: Client, m: Message):
                 subprocess.run(f'ffmpeg -i "{filename}" -ss 00:01:00 -vframes 1 "{filename}.jpg"', shell=True)
                 await prog.delete (True)
                 reply = await m.reply_text(f"Uploading » {str(count).zfill(3)}-{name}\n\nRemaining » {remain} Files")
-                bot1.pin_chat_message(chat_id=update.chat.id,message_id=update.message.id)
                 try:
                     if thumb == "no":
                         thumbnail = f"{filename}.jpg"
