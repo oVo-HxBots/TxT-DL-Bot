@@ -320,7 +320,7 @@ async def account_login(bot: Client, m: Message):
 
 
             try:
-                remain = {str(count).zfill(3)} - {str(count-=1)}
+                remain = {str(count).zfill(3)} - {str(count-1}
                 Show = f"**Downloading:-**\n\n**Name »** `{name}`\n**Quality »** `{raw_text2}`\n\n**Url »** `{url}`\n\nRemaining » {remain} Files"
                 prog = await m.reply_text(Show)
                 bot1.pin_chat_message(chat_id=update.chat.id,message_id=update.message.id)
@@ -487,7 +487,7 @@ async def account_login(bot: Client, m: Message):
                 url1 = url
 
             
-            remain = f'{raw_text} - count-=1'
+            remain = f'{raw_text} - count-1'
             name = f'{str(count).zfill(3)} {name1}'    
             Show = f"**Downloading:-**\n\n**Name :-** `{name} {video}`\n\n**Url :-** `{url1}`\n\nRemaining » {remain} Files"
             prog = await m.reply_text(Show)
