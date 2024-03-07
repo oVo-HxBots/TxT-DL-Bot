@@ -97,16 +97,15 @@ async def account_login(bot: Client, m: Message):
         arg = 0
 
 
-    await editable.edit("**Enter Your Name or send `de` for use default file Name**")
-    input3: Message = await bot.listen(editable.chat.id)
-    raw_text3 = input3.text
-    if raw_text3 == 'de':
-        CR = raw_text3
+    editable = await m.reply_text("**Enter Title For File. Send 'de' To Use Default File Name.**")
+    input0: Message = await bot.listen(editable.chat.id)
+    raw_text0 = input0.text
+    if raw_text0 == 'de':
+        CR = raw_text0
         
     await m.reply_text("**Enter Resolution \nExamples: __480 = SD Quality\n             720 = HD Quality\n             1080 = FHD Quality__**")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
-
         
     editable4= await m.reply_text("Now send the **Thumb url**\nEg : https://telegra.ph/file/d9e24878bd4abyhga05049a1.jpg\n\nElse Send **No**")
     input6 = message = await bot.listen(editable.chat.id)
@@ -346,7 +345,7 @@ async def account_login(bot: Client, m: Message):
                         ka=await helper.aio(url,name)
                         await prog.delete (True)
                         time.sleep(1)
-                        reply = await m.reply_text(f"Uploading - ```{name}```")
+                        reply = await m.reply_text(f"Uploading - {name}")
                         time.sleep(1)
                         start_time = time.time()
                         await m.reply_document(ka, caption=f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n**Batch »** {raw_text0}\n\n**{CR}**')
@@ -503,7 +502,7 @@ async def account_login(bot: Client, m: Message):
 #                 filename = f"{name}.mkv"
                 subprocess.run(f'ffmpeg -i "{filename}" -ss 00:01:00 -vframes 1 "{filename}.jpg"', shell=True)
                 await prog.delete (True)
-                reply = await m.reply_text(f"Uploading - ```{name}```")
+                reply = await m.reply_text(f"Uploading - `{name}`")
                 try:
                     if thumb == "no":
                         thumbnail = f"{filename}.jpg"
