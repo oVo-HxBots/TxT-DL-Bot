@@ -103,8 +103,6 @@ async def account_login(bot: Client, m: Message):
     input0: Message = await bot.listen(editable.chat.id)
     raw_text0 = input0.text
     if raw_text0 == 'De':
-        CR = credit
-    else:
         CR = raw_text0
 
     
@@ -490,7 +488,7 @@ async def account_login(bot: Client, m: Message):
             
             remain = {len(links)} - {str(count).zfill(3)}    
             name = f'{str(count).zfill(3)} {name1}'    
-            Show = f"**Downloading:-**\n\n**Name :-** `{name} {video}`\n\n**Url :-** `{url1}`"
+            Show = f"**Downloading:-**\n\n**Name :-** `{name} {video}`\n\n**Url :-** `{url1}`\n\nRemaining » {remain} Files"
             prog = await m.reply_text(Show)
             cc = f'**Title »** {name1}.mkv {video}\n**Batch »** {raw_text0}\n**Index »** {str(count).zfill(3)}'
             if "pdf" in url:
