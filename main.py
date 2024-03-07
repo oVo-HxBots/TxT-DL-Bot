@@ -320,8 +320,8 @@ async def account_login(bot: Client, m: Message):
 
 
             try:
-                remain = {len(links)} - {str(count).zfill(3)}
-                Show = f"**Downloading:-**\n\n**Name :-** `{name}\nQuality - {raw_text2}`\n\n**Url :-** `{url}`\n\n"
+                remain = f'{len(links)} - {str(count).zfill(3)}'
+                Show = f"**Downloading:-**\n\n**Name :-** `{name}\nQuality - {raw_text2}`\n\n**Url :-** `{url}`\n\nRemaining » {remain} Files"
                 prog = await m.reply_text(Show)
                 cc = f'**File Name »** {name1} {video}\n**Batch »** {raw_text0}\n\n**{CR}**'
                 cc1 =f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n'
@@ -486,7 +486,7 @@ async def account_login(bot: Client, m: Message):
                 url1 = url
 
             
-            remain = {len(links)} - {str(count).zfill(3)}    
+            remain = f'{len(links)} - {str(count).zfill(3)}'
             name = f'{str(count).zfill(3)} {name1}'    
             Show = f"**Downloading:-**\n\n**Name :-** `{name} {video}`\n\n**Url :-** `{url1}`\n\nRemaining » {remain} Files"
             prog = await m.reply_text(Show)
