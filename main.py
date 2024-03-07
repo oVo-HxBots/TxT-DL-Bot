@@ -96,14 +96,20 @@ async def account_login(bot: Client, m: Message):
     except:
         arg = 0
 
-    editable = await m.reply_text("**Enter Title**")
-    input0: Message = await bot.listen(editable.chat.id)
-    raw_text0 = input0.text
-    
+
+    await editable.edit("**Enter Your Name or send `de` for use default file Name**")
+    input3: Message = await bot.listen(editable.chat.id)
+    raw_text3 = input3.text
+    if raw_text3 == 'de':
+        CR = credit
+    else:
+        CR = raw_text3
+        
     await m.reply_text("**Enter Resolution \nExamples: __480 = SD Quality\n             720 = HD Quality\n             1080 = FHD Quality__**")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
 
+        
     editable4= await m.reply_text("Now send the **Thumb url**\nEg : https://telegra.ph/file/d9e24878bd4abyhga05049a1.jpg\n\nElse Send **No**")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
