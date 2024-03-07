@@ -101,8 +101,6 @@ async def account_login(bot: Client, m: Message):
     input3: Message = await bot.listen(editable.chat.id)
     raw_text3 = input3.text
     if raw_text3 == 'de':
-        CR = credit
-    else:
         CR = raw_text3
         
     await m.reply_text("**Enter Resolution \nExamples: __480 = SD Quality\n             720 = HD Quality\n             1080 = FHD Quality__**")
