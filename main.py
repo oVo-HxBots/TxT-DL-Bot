@@ -99,7 +99,7 @@ async def account_login(bot: Client, m: Message):
     except:
         arg = 0
 
-    remain = {len(links)} - int(raw_text)
+remain = {len(links)} - {str(count).zfill(3)}
     
     editable = await m.reply_text("**Enter Title For File. Send 'De' To Use Default File Name.**")
     input0: Message = await bot.listen(editable.chat.id)
@@ -334,7 +334,7 @@ async def account_login(bot: Client, m: Message):
                         await prog.delete (True)
                         time.sleep(1)
                         await helper.send_video(bot,m,cc,ka,cc1,prog,count,name)
-                        reply = await m.reply_text(f"Uploading - {str(count).zfill(3)} File\n\nRemaining = {remain}")
+                        reply = await m.reply_text(f"Uploading » {str(count).zfill(3)}-{name}\n\nRemaining » {remain} Files")
                         bot1.pin_chat_message(chat_id=update.chat.id,message_id=update.message.id)
                         time.sleep(1)
                         start_time = time.time()
@@ -353,7 +353,8 @@ async def account_login(bot: Client, m: Message):
                         ka=await helper.aio(url,name)
                         await prog.delete (True)
                         time.sleep(1)
-                        reply = await m.reply_text(f"Uploading - {name}")
+                        reply = await m.reply_text(f"Uploading » {str(count).zfill(3)}-{name}\n\nRemaining » {remain} Files")
+                        bot1.pin_chat_message(chat_id=update.chat.id,message_id=update.message.id)
                         time.sleep(1)
                         start_time = time.time()
                         await m.reply_document(ka, caption=f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n**Batch »** {raw_text0}\n\n**{CR}**')
@@ -487,7 +488,8 @@ async def account_login(bot: Client, m: Message):
             else:
                 url1 = url
 
-                
+            
+            remain = {len(links)} - {str(count).zfill(3)}    
             name = f'{str(count).zfill(3)} {name1}'    
             Show = f"**Downloading:-**\n\n**Name :-** `{name} {video}`\n\n**Url :-** `{url1}`"
             prog = await m.reply_text(Show)
@@ -510,7 +512,8 @@ async def account_login(bot: Client, m: Message):
                    #filename = f"{name}.mkv"
                 subprocess.run(f'ffmpeg -i "{filename}" -ss 00:01:00 -vframes 1 "{filename}.jpg"', shell=True)
                 await prog.delete (True)
-                reply = await m.reply_text(f"Uploading - `{name}`")
+                reply = await m.reply_text(f"Uploading » {str(count).zfill(3)}-{name}\n\nRemaining » {remain} Files")
+                bot1.pin_chat_message(chat_id=update.chat.id,message_id=update.message.id)
                 try:
                     if thumb == "no":
                         thumbnail = f"{filename}.jpg"
