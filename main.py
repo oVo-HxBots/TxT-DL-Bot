@@ -99,8 +99,6 @@ async def account_login(bot: Client, m: Message):
     except:
         arg = 0
 
-remain = {len(links)} - {str(count).zfill(3)}
-    
     editable = await m.reply_text("**Enter Title For File. Send 'De' To Use Default File Name.**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text0 = input0.text
@@ -324,10 +322,11 @@ remain = {len(links)} - {str(count).zfill(3)}
 
 
             try:
+                remain = {len(links)} - {str(count).zfill(3)}
                 Show = f"**Downloading:-**\n\n**Name :-** `{name}\nQuality - {raw_text2}`\n\n**Url :-** `{url}`\n\n"
                 prog = await m.reply_text(Show)
                 cc = f'**File Name »** {name1} {video}\n**Batch »** {raw_text0}\n\n**{CR}**'
-                cc1 =f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n**Batch »** {raw_text0}\n\n**{CR}**'
+                cc1 =f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n'
                 if cmd == "pdf" or "drive" in url:
                     try:
                         ka=await helper.download(url,name)
