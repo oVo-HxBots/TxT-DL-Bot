@@ -44,7 +44,6 @@ owner = f'@Kirodewal'
 pdf = f'@TxT_DLBot.pdf'
 video = f'@TxT_DLBot.mp4'
 mkv = f'@TxT_DLBot.mkv'
-remain = f'{len(links)} - int(raw_text)'
 
 @bot.on_message(filters.command(["help"]))
 async def help_handler(bot: Client, m: Message):
@@ -100,7 +99,8 @@ async def account_login(bot: Client, m: Message):
     except:
         arg = 0
 
-
+    remain = {len(links)} - int(raw_text)
+    
     editable = await m.reply_text("**Enter Title For File. Send 'De' To Use Default File Name.**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text0 = input0.text
