@@ -1,6 +1,7 @@
 import requests
 import json
 import subprocess
+import telegram
 from pyrogram import Client,filters
 from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -36,6 +37,7 @@ bot = Client(
     api_hash=Config.API_HASH,
     workers= 6)
 
+bot1 = telegram.Bot(token=bot_token)
 channel = f'@HxBots'
 owner = f'@Kirodewal'
 pdf = f'@TxT_DLBot.pdf'
@@ -329,7 +331,7 @@ async def account_login(bot: Client, m: Message):
                         ka=await helper.download(url,name)
                         await prog.delete (True)
                         time.sleep(1)
-                        # await helper.send_doc(bot,m,cc,ka,cc1,prog,count,name)
+                        await helper.send_video(bot,m,cc,ka,cc1,prog,count,name)
                         reply = await m.reply_text(f"Uploading - `{name}`")
                         time.sleep(1)
                         start_time = time.time()
@@ -362,6 +364,10 @@ async def account_login(bot: Client, m: Message):
                         await m.reply_text(str(e))
                         time.sleep(e.x)
                         continue
+                    try:
+                        bot1.pin_chat_message(chat_id=update.chat.id,message_id=update.message.id)
+                        except Exception as e:
+                        print(f"Error pinning message: {e}")    
                 else:
                     res_file = await helper.download_video(url,cmd, name)
                     filename = res_file
@@ -483,7 +489,7 @@ async def account_login(bot: Client, m: Message):
                 url1 = url
 
                 
-            name = f'{str(count).zfill(3)}) {name1}'    
+            name = f'{str(count).zfill(3)} {name1}'    
             Show = f"**Downloading:-**\n\n**Name :-** `{name} {video}`\n\n**Url :-** `{url1}`"
             prog = await m.reply_text(Show)
             cc = f'**Title »** {name1}.mkv {video}\n**Batch »** {raw_text0}\n**Index »** {str(count).zfill(3)}'
@@ -502,7 +508,7 @@ async def account_login(bot: Client, m: Message):
                     filename = f"{name}.mp4"  
                 elif os.path.isfile(f"{name}.pdf"):
                     filename = f"{name}.pdf"  
-#                 filename = f"{name}.mkv"
+                   #filename = f"{name}.mkv"
                 subprocess.run(f'ffmpeg -i "{filename}" -ss 00:01:00 -vframes 1 "{filename}.jpg"', shell=True)
                 await prog.delete (True)
                 reply = await m.reply_text(f"Uploading - `{name}`")
