@@ -37,6 +37,7 @@ bot = Client(
     api_hash=Config.API_HASH,
     workers= 6)
 
+bot_token=Config.BOT_TOKEN
 bot1 = telegram.Bot(token=bot_token)
 channel = f'@HxBots'
 owner = f'@Kirodewal'
