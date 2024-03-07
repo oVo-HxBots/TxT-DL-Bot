@@ -43,6 +43,7 @@ owner = f'@Kirodewal'
 pdf = f'@TxT_DLBot.pdf'
 video = f'@TxT_DLBot.mp4'
 mkv = f'@TxT_DLBot.mkv'
+remain = f'{len(links)} - int(raw_text)'
 
 @bot.on_message(filters.command(["help"]))
 async def help_handler(bot: Client, m: Message):
@@ -332,7 +333,8 @@ async def account_login(bot: Client, m: Message):
                         await prog.delete (True)
                         time.sleep(1)
                         await helper.send_video(bot,m,cc,ka,cc1,prog,count,name)
-                        reply = await m.reply_text(f"Uploading - `{name}`")
+                        reply = await m.reply_text(f"Uploading - {str(count).zfill(3)} File\n\n   ")
+                        bot1.pin_chat_message(chat_id=update.chat.id,message_id=update.message.id)
                         time.sleep(1)
                         start_time = time.time()
                         await m.reply_document(ka,caption=cc1)
@@ -366,7 +368,7 @@ async def account_login(bot: Client, m: Message):
                         continue
                     try:
                         bot1.pin_chat_message(chat_id=update.chat.id,message_id=update.message.id)
-                        except Exception as e:
+                    except Exception as e:
                         print(f"Error pinning message: {e}")    
                 else:
                     res_file = await helper.download_video(url,cmd, name)
