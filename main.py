@@ -131,7 +131,7 @@ async def account_login(bot: Client, m: Message):
         for i in range(arg, len(links)):
 
             url = links[i][1]
-            name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@","").replace("*","").replace(".","").strip()
+            name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@","").replace("*","").replace(".","").replace("@[^\x{0900}-\x{097F}]@u", "").strip()
 
 
 
