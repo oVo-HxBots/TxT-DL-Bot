@@ -2,6 +2,7 @@ import requests
 import json
 import subprocess
 import telegram
+import unicodedata
 from pyrogram import Client,filters
 from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
