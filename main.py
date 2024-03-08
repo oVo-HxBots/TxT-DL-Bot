@@ -320,8 +320,7 @@ async def account_login(bot: Client, m: Message):
 
 
             try:
-                remain = f'{str(count).zfill(3)} - 1'
-                Show = f"**Downloading:-**\n\n**Name »** `{name}`\n**Quality »** `{raw_text2}`\n\n**Url »** `{url}`\n\nRemaining » {remain} Files"
+                Show = f"**Downloading:-**\n\n**Name »** `{name}`\n**Quality »** `{raw_text2}`\n\n**Url »** `{url}`\n\n"
                 prog = await m.reply_text(Show)
                 cc = f'**File Name »** {name1} {video}\n**Quality »** {raw_text2}'
                 cc1 =f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n'
@@ -330,8 +329,8 @@ async def account_login(bot: Client, m: Message):
                         ka=await helper.download(url,name)
                         await prog.delete (True)
                         time.sleep(1)
-                        await helper.send_video(bot,m,cc,ka,cc1,prog,count,name)
-                        reply = await m.reply_text(f"Uploading » {str(count).zfill(3)}-{name}\n\nRemaining » {remain} Files")
+                        #await helper.send_video(bot,m,cc,ka,cc1,prog,count,name)
+                        reply = await m.reply_text(f"Uploading » {str(count).zfill(3)}-{name}\n\n")
                         time.sleep(1)
                         start_time = time.time()
                         await m.reply_document(ka,caption=cc1)
@@ -349,10 +348,10 @@ async def account_login(bot: Client, m: Message):
                         ka=await helper.aio(url,name)
                         await prog.delete (True)
                         time.sleep(1)
-                        reply = await m.reply_text(f"Uploading » {str(count).zfill(3)}-{name}\n\nRemaining » {remain} Files")
+                        reply = await m.reply_text(f"Uploading » {str(count).zfill(3)}-{name}\n\n")
                         time.sleep(1)
                         start_time = time.time()
-                        await m.reply_document(ka, caption=f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n**Batch »** {raw_text0}\n\n**{CR}**')
+                        await m.reply_document(ka, caption=f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n')
                         count+=1
                         # time.sleep(1)
                         await reply.delete (True)
@@ -484,9 +483,9 @@ async def account_login(bot: Client, m: Message):
                 url1 = url
 
             
-            remain = f'{str(count).zfill(3)} - 1'
+            
             name = f'{name1}'    
-            Show = f"**Downloading:-**\n\n**Name :-** `{name} {video}`\n\n**Url :-** `{url1}`\n\nRemaining » {remain} Files"
+            Show = f"**Downloading:-**\n\n**Name :-** `{name} {video}`\n\n**Url :-** `{url1}`\n\n"
             prog = await m.reply_text(Show)
             cc = f'**Title »** {name1}.mkv {video}\n**Batch »** {raw_text0}\n**Index »** {str(count).zfill(3)}'
             if "pdf" in url:
