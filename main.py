@@ -333,7 +333,7 @@ async def account_login(bot: Client, m: Message):
                         reply = await m.reply_text(f"Uploading » {str(count).zfill(3)}-{name}\n\n")
                         time.sleep(1)
                         start_time = time.time()
-                        await m.reply_document(ka,caption=cc1)
+                        await m.reply_document(ka,caption=cc1,progress=progress_bar,progress_args=(reply,start_time))
                         count+=1
                         await reply.delete (True)
                         time.sleep(1)
